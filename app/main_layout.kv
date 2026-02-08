@@ -1,0 +1,26 @@
+# main_layout.kv
+#:import MDScreenManager kivymd.uix.screenmanager.MDScreenManager
+#:import MDScreen kivymd.uix.screen.MDScreen
+
+# Include your other KV files
+#:import ChatbotScreen screens.chatbot_screen.ChatbotScreen
+#:import WelcomeScreen screens.welcome.WelcomeScreen
+#:import SettingsBox screens.setting.SettingsBox
+
+# custom kivy objects / classes
+
+
+# Define the ScreenManager as the root widget
+MDScreenManager:
+
+    WelcomeScreen:
+        id: welcome_scr
+
+    ChatbotScreen:
+        id: chatbot_scr
+
+    MDScreen:
+        name: 'settings_screen'
+        on_enter: app.settings_initiate()
+        SettingsBox:
+            id: settings_scr

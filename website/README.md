@@ -4,11 +4,11 @@ A modern, privacy-focused landing page for the Offline AI Chatbot application.
 
 ## Features
 
-- 🎨 Modern, premium design with dark theme
-- ✨ Smooth animations and transitions
-- 📱 Fully responsive (mobile, tablet, desktop)
-- 🚀 Optimized for performance
-- 🔒 Privacy-first messaging
+- Modern, premium design with dark theme
+- Smooth animations and transitions
+- Fully responsive (mobile, tablet, desktop)
+- Optimized for performance
+- Privacy-first messaging
 
 ## Deployment to Vercel
 
@@ -49,7 +49,7 @@ vercel
 
 ## Important Note About Large Files
 
-⚠️ **The executable file (OfflineChatbot.exe) is ~57MB**, which may exceed Vercel's free tier limits for individual files.
+**The executable file (OfflineChatbot.exe) is ~57MB**, which may exceed Vercel's free tier limits for individual files.
 
 ### Solutions:
 

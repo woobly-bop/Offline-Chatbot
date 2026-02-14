@@ -1,4 +1,4 @@
-# OFFLINE AI CHATBOT 🧠
+# OFFLINE AI CHATBOT
 **PBL project made by DEEP KIRAN KAUR**
 
 This project is a standalone, offline AI chatbot application designed to run Large Language Models (LLMs) specifically on your local Windows machine without requiring an internet connection.

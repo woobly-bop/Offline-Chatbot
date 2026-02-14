@@ -12,51 +12,118 @@ from kivy.utils import platform
 # local imports
 
 Builder.load_string('''
+#:import parse_color kivy.parser.parse_color
 
 <DeleteModelItems@OneLineAvatarIconListItem>:
+    theme_text_color: "Custom"
+    text_color: parse_color('#212121')
+    md_bg_color: parse_color('#ffffff')
+    _no_ripple_effect: False
+    
     IconLeftWidget:
         icon: "robot-happy"
+        theme_text_color: "Custom"
+        text_color: parse_color('#1976d2')
+        
     IconRightWidget:
         icon: "delete"
         on_release: app.init_delete_model(root.text)
         theme_text_color: "Custom"
-        text_color: "gray"
+        text_color: parse_color('#f44336')
 
 <SettingsBox>:
     orientation: 'vertical'
     padding: 0, root.top_pad, 0, root.bottom_pad
+    canvas.before:
+        # Light background
+        Color:
+            rgba: parse_color('#fafafa')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header
+    MDBoxLayout:
+        orientation: 'vertical'
+        adaptive_height: True
+        padding: dp(20), dp(20)
+        spacing: dp(10)
+        canvas.before:
+            Color:
+                rgba: parse_color('#1976d2')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        MDLabel:
+            text: "Settings"
+            font_style: "H4"
+            halign: "center"
+            adaptive_height: True
+            theme_text_color: "Custom"
+            text_color: parse_color('#ffffff')
+            bold: True
 
     Accordion:
         orientation: 'vertical'
+        padding: dp(16)
+        spacing: dp(12)
 
         AccordionItem:
-            title: "Delete model files"
-            spacing: dp(8)
+            title: "Manage Downloaded Models"
+            title_template: "AccordionItemTitle"
+            background_normal: ""
+            background_selected: ""
             canvas.before:
                 Color:
-                    rgba: 168, 183, 191, 1
+                    rgba: parse_color('#2196f3')
                 RoundedRectangle:
-                    size: self.width, self.height
+                    size: self.width, self.height if self.collapse else dp(48)
                     pos: self.pos
+                    radius: [15,]
 
             MDScrollView:
+                canvas.before:
+                    Color:
+                        rgba: parse_color('#ffffff')
+                    RoundedRectangle:
+                        size: self.width, self.height
+                        pos: self.pos
+                        radius: [10,]
+                        
                 adaptive_height: True
                 MDList:
                     id: delete_model_list
-                    # Items will be added here
+                    padding: dp(8)
+                    spacing: dp(8)
 
-    MDBoxLayout: # Input box with Send button
-        size_hint_y: 0.1
+    Widget:
+        size_hint_y: 1
+
+    # Bottom navigation
+    MDBoxLayout:
+        size_hint_y: None
+        height: dp(80)
         orientation: 'horizontal'
-        spacing: dp(5)
-        padding: 8, 4, 8, 8 # left, top, right, bottom
-        adaptive_height: True
+        spacing: dp(12)
+        padding: dp(20), dp(12)
+        canvas.before:
+            Color:
+                rgba: parse_color('#f5f5f5')
+            Rectangle:
+                size: self.width, self.height
+                pos: self.pos
+                
         MDFillRoundFlatIconButton:
             id: setting_to_chat
-            icon: "chat"
-            text: "Go Back"
-            size_hint_x: 0.2
-            font_size: sp(16)
+            icon: "arrow-left"
+            text: "Back to Chat"
+            size_hint_x: 1
+            height: dp(56)
+            font_size: sp(18)
+            md_bg_color: parse_color('#1976d2')
+            text_color: parse_color('#ffffff')
+            icon_color: parse_color('#ffffff')
             on_release: app.go_to_chat_screen()
 
 ''')

@@ -82,32 +82,15 @@ class OfflineChatbotApp(MDApp):
         self.messages = []
 
     def build(self):
+        self.theme_cls.theme_style = "Light"  # Enable light theme
         self.theme_cls.primary_palette = "Blue"
-        self.theme_cls.accent_palette = "Orange"
+        self.theme_cls.accent_palette = "LightBlue"
+        self.theme_cls.primary_hue = "700"
+
         self.top_menu_items = {
             "Settings": {
                 "icon": "wrench",
                 "action": "settings",
-                "url": "",
-            },
-            "Demo": {
-                "icon": "youtube",
-                "action": "web",
-                "url": "https://www.youtube.com/watch?v=D-KwL59GgKA",
-            },
-            "Documentation": {
-                "icon": "file-document-check",
-                "action": "web",
-                "url": "https://blog.daslearning.in/llm_ai/genai/onllm.html",
-            },
-            "Contact Us": {
-                "icon": "card-account-phone",
-                "action": "web",
-                "url": "https://daslearning.in/contact/",
-            },
-            "Check for update": {
-                "icon": "github",
-                "action": "update",
                 "url": "",
             },
         }
